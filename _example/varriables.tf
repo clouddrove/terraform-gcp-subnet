@@ -27,3 +27,9 @@ variable "gcp_zone" {
   default     = "Europe-west3-c"
   description = "Google Cloud zone"
 }
+
+variable "ip_cidr_range" {
+  type        = string
+  default     = "10.2.0.0/16"
+  description = "(Required) The range of internal addresses that are owned by this subnetwork. Provide this property when you create the subnetwork. For example, 10.0.0.0/8 or 192.168.0.0/16. Ranges must be unique and non-overlapping within a network. Only IPv4 is supported."
+}
