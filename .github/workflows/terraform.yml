@@ -1,9 +1,7 @@
 name: static-checks
 
 on:
-  push:
-    branches:
-      - Devops
+  pull_request:
 
 jobs:
   versionExtract:

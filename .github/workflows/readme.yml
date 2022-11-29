@@ -2,7 +2,7 @@ name: 'Create README.md file'
 on:
   push:
     branches:
-      - Devops
+      - master
 
 jobs:
   readme-create:
