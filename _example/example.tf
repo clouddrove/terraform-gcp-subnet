@@ -5,7 +5,8 @@ provider "google" {
 }
 
 module "vpc" {
-  source = "git::https://github.com/clouddrove/terraform-gcp-vpc.git"
+  source      = "clouddrove/vpc/gcp"
+  version     = "1.0.0"
 
   name                           = "vpc"
   environment                    = "test"

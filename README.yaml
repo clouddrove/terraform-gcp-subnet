@@ -30,7 +30,7 @@ badges:
 
 #  description of this project
 description: |-
-  Terraform module to create VPC resource on google.
+  Terraform module to create subnet resource on google.
 # extra content
 include:
   - "terraform.md"
@@ -39,7 +39,7 @@ include:
 # How to use this project
 usage: |-
   Here are some examples of how you can use this module in your inventory structure:
-  ### Default vpc
+  ### Default subnet
   ```hcl
   module "subnet" {
   source = "../"
