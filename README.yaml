@@ -1,0 +1,69 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name : Terraform gcp subnet
+
+# License of this project
+license: "APACHE"
+
+# Canonical GitHub repo
+github_repo: clouddrove/terraform-gcp-subnet
+
+# Badges to display
+badges:
+  - name: "Terraform"
+    image: "https://img.shields.io/badge/Terraform-v1.1.7-green"
+    url: "https://www.terraform.io"
+  - name: "Licence"
+    image: "https://img.shields.io/badge/License-APACHE-blue.svg"
+    url: "LICENSE.md"
+  - name: "tfsec"
+    image: "https://github.com/clouddrove/terraform-gcp-subnet/actions/workflows/tfsec.yml/badge.svg"
+    url: "https://github.com/clouddrove/terraform-gcp-subnet/actions/workflows/tfsec.yml"
+  - name: "static-checks"
+    image: "https://github.com/clouddrove/terraform-gcp-subnet/actions/workflows/terraform.yml/badge.svg"
+    url: "https://github.com/clouddrove/terraform-gcp-subnet/actions/workflows/terraform.yml"
+
+#  description of this project
+description: |-
+  Terraform module to create subnet resource on google.
+# extra content
+include:
+  - "terraform.md"
+
+# How to use this project
+# How to use this project
+usage: |-
+  Here are some examples of how you can use this module in your inventory structure:
+  ### Default subnet
+  ```hcl
+  module "subnet" {
+  source = "../"
+
+  name        = "dev"
+  environment = var.environment
+  label_order = var.label_order
+
+  google_compute_subnetwork_enabled  = true
+  google_compute_firewall_enabled    = true
+  google_compute_router_nat_enabled  = true
+  module_enabled                     = true
+  network                            = module.vpc.vpc_id
+  project_id                         = "clouddrove"
+  private_ip_google_access           = true
+  allow                              = [{ "protocol" : "tcp", "ports" : ["1-65535"] }]
+  source_ranges                      = ["10.10.0.0/16"]
+  asn                                = 64514
+  nat_ip_allocate_option             = "MANUAL_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+  filter                             = "ERRORS_ONLY"
+  dest_range                         = "0.0.0.0/0"
+  next_hop_gateway                   = "default-internet-gateway"
+  priority                           = 1000
+  secondary_ip_ranges                = [{ "range_name" : "services", "ip_cidr_range" : "10.1.0.0/16" }, { "range_name" : "pods", "ip_cidr_range" : "10.3.0.0/16" }]
+  }
+  ```

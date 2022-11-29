@@ -61,6 +61,26 @@ variable "module_enabled" {
   default = true
 }
 
+variable "google_compute_firewall_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "google_compute_route_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "google_compute_address_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "google_compute_router_nat_enabled" {
+  type    = bool
+  default = true
+}
+
 variable "module_timeouts" {
   type        = any
   default     = {}
@@ -71,4 +91,58 @@ variable "gcp_region" {
   type        = string
   default     = "europe-west3"
   description = "Google Cloud region"
+}
+
+variable "allow" {
+  type        = list(any)
+  default     = []
+  description = "(Optional) The list of ALLOW rules specified by this firewall. Each rule specifies a protocol and port-range tuple that describes a permitted connection."
+}
+
+variable "source_ranges" {
+  type        = any
+  default     = []
+  description = "(Optional) If source ranges are specified, the firewall will apply only to traffic that has source IP address in these ranges."
+}
+
+variable "dest_range" {
+  type        = string
+  default     = "0.0.0.0/0"
+  description = "The destination range of outgoing packets that this route applies to. Only IPv4 is supported."
+}
+
+variable "next_hop_gateway" {
+  type        = string
+  default     = ""
+  description = "URL to a gateway that should handle matching packets."
+}
+
+variable "priority" {
+  type        = number
+  default     = 1000
+  description = "The priority of this route."
+}
+
+variable "asn" {
+  type        = number
+  default     = 64514
+  description = "Local BGP Autonomous System Number (ASN). Must be an RFC6996 private ASN, either 16-bit or 32-bit."
+}
+
+variable "nat_ip_allocate_option" {
+  type        = string
+  default     = "MANUAL_ONLY"
+  description = "How external IPs should be allocated for this NAT."
+}
+
+variable "source_subnetwork_ip_ranges_to_nat" {
+  type        = string
+  default     = ""
+  description = "How NAT should be configured per Subnetwork."
+}
+
+variable "filter" {
+  type        = string
+  default     = ""
+  description = "Specifies the desired filtering of logs on this NAT."
 }
