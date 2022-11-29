@@ -5,7 +5,7 @@ provider "google" {
 }
 
 module "vpc" {
-  source = "git::https://github.com/clouddrove/terraform-gcp-vpc.git?ref"
+  source = "git::https://github.com/clouddrove/terraform-gcp-vpc.git"
 
   name                           = "vpc"
   environment                    = "test"
@@ -13,7 +13,7 @@ module "vpc" {
   google_compute_network_enabled = true
 }
 
-module "subnetwork" {
+module "subnet" {
   source = "../"
 
   name        = "dev"
