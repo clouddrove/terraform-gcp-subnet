@@ -78,7 +78,8 @@ Here are some examples of how you can use this module in your inventory structur
 ### Default subnet
 ```hcl
 module "subnet" {
-source = "../"
+source = "clouddrove/subnet/google"
+version     = "1.0.0"
 
 name        = "dev"
 environment = var.environment
