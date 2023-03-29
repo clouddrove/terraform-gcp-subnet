@@ -126,6 +126,7 @@ secondary_ip_ranges                = [{ "range_name" : "services", "ip_cidr_rang
 | google\_compute\_router\_nat\_enabled | n/a | `bool` | `true` | no |
 | google\_compute\_subnetwork\_enabled | n/a | `bool` | `true` | no |
 | ip\_cidr\_range | (Required) The range of internal addresses that are owned by this subnetwork. Provide this property when you create the subnetwork. For example, 10.0.0.0/8 or 192.168.0.0/16. Ranges must be unique and non-overlapping within a network. Only IPv4 is supported. | `string` | `"10.10.0.0/24"` | no |
+| ipv6\_access\_type | The access type of IPv6 address this subnet holds. | `string` | `""` | no |
 | label\_order | Label order, e.g. sequence of application name and environment `name`,`environment`,'attribute' [`webserver`,`qa`,`devops`,`public`,] . | `list(any)` | `[]` | no |
 | log\_config | (Optional) Logging options for the subnetwork flow logs. Setting this value to 'null' will disable them. See https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html for more information and examples. | `any` | `null` | no |
 | module\_enabled | n/a | `bool` | `true` | no |
