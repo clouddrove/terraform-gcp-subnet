@@ -1,6 +1,6 @@
 module "labels" {
-  source      = "clouddrove/labels/gcp"
-  version     = "1.0.0"
+  source  = "clouddrove/labels/gcp"
+  version = "1.0.0"
 
   name        = var.name
   environment = var.environment
@@ -15,6 +15,7 @@ resource "google_compute_subnetwork" "subnetwork" {
   network = var.network
   region  = var.gcp_region
 
+  ipv6_access_type         = var.ipv6_access_type
   private_ip_google_access = var.private_ip_google_access
   ip_cidr_range            = cidrsubnet(var.ip_cidr_range, 0, 0)
 
@@ -52,7 +53,7 @@ resource "google_compute_subnetwork" "subnetwork" {
 }
 
 resource "google_compute_firewall" "default" {
-  count   = var.google_compute_firewall_enabled && var.module_enabled ? 1 : 0
+  count = var.google_compute_firewall_enabled && var.module_enabled ? 1 : 0
 
   name    = format("%s-firewall", module.labels.name)
   network = var.network
@@ -70,7 +71,7 @@ resource "google_compute_firewall" "default" {
 }
 
 resource "google_compute_route" "default" {
-  count            = var.google_compute_route_enabled && var.module_enabled ? 1 : 0
+  count = var.google_compute_route_enabled && var.module_enabled ? 1 : 0
 
   name             = format("%s-route", module.labels.name)
   dest_range       = var.dest_range
@@ -80,7 +81,7 @@ resource "google_compute_route" "default" {
 }
 
 resource "google_compute_router" "default" {
-  count   = var.google_compute_route_enabled && var.module_enabled ? 1 : 0
+  count = var.google_compute_route_enabled && var.module_enabled ? 1 : 0
 
   name    = format("%s-router", module.labels.name)
   network = var.network
@@ -90,14 +91,14 @@ resource "google_compute_router" "default" {
 }
 
 resource "google_compute_address" "default" {
-  count  = var.google_compute_address_enabled && var.module_enabled ? 1 : 0
+  count = var.google_compute_address_enabled && var.module_enabled ? 1 : 0
 
   name   = format("%s-address", module.labels.name)
   region = var.gcp_region
 }
 
 resource "google_compute_router_nat" "nat" {
-  count                              = var.google_compute_router_nat_enabled && var.module_enabled ? 1 : 0
+  count = var.google_compute_router_nat_enabled && var.module_enabled ? 1 : 0
 
   name                               = format("%s-router-nat", module.labels.name)
   router                             = join("", google_compute_router.default.*.name)

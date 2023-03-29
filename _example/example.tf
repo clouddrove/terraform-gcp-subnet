@@ -5,8 +5,8 @@ provider "google" {
 }
 
 module "vpc" {
-  source      = "clouddrove/vpc/gcp"
-  version     = "1.0.0"
+  source  = "clouddrove/vpc/gcp"
+  version = "1.0.0"
 
   name                           = "vpc"
   environment                    = "test"
@@ -25,6 +25,7 @@ module "subnet" {
   google_compute_firewall_enabled    = true
   google_compute_router_nat_enabled  = true
   module_enabled                     = true
+  ipv6_access_type                   = "EXTERNAL"
   network                            = module.vpc.vpc_id
   project_id                         = "clouddrove"
   private_ip_google_access           = true
