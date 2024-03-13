@@ -102,10 +102,10 @@ resource "google_compute_router_nat" "nat" {
   count = var.google_compute_router_nat_enabled && var.module_enabled ? 1 : 0
 
   name                               = format("%s-router-nat", module.labels.name)
-  router                             = join("", google_compute_router.default.*.name)
+  router                             = join("", google_compute_router.default[*].name)
   region                             = var.gcp_region
   nat_ip_allocate_option             = var.nat_ip_allocate_option
-  nat_ips                            = google_compute_address.default.*.self_link
+  nat_ips                            = google_compute_address.default[*].self_link
   source_subnetwork_ip_ranges_to_nat = var.source_subnetwork_ip_ranges_to_nat
 
   log_config {

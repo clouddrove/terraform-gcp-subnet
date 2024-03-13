@@ -47,7 +47,7 @@ variable "secondary_ip_ranges" {
 
 variable "log_config" {
   type        = any
-  default     = null
+  default     = true
   description = "(Optional) Logging options for the subnetwork flow logs. Setting this value to 'null' will disable them. See https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html for more information and examples."
 }
 
