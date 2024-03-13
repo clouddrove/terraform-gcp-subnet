@@ -84,6 +84,7 @@ resource "google_compute_router" "default" {
   count = var.google_compute_route_enabled && var.module_enabled ? 1 : 0
 
   name    = format("%s-router", module.labels.name)
+  region  = var.gcp_region
   network = var.network
   bgp {
     asn = var.asn
