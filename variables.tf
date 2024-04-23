@@ -46,8 +46,8 @@ variable "secondary_ip_ranges" {
 }
 
 variable "log_config" {
-  type    = map(any)
-  default = null
+  type        = map(any)
+  default     = null
   description = "VPC flow logging options for this subnetwork"
 }
 
