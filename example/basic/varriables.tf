@@ -12,7 +12,7 @@ variable "label_order" {
 
 variable "gcp_project_id" {
   type        = string
-  default     = "clouddrove"
+  default     = "cloud-crew-testing"
   description = "Google Cloud project ID"
 }
 
