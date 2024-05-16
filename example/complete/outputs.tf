@@ -1,4 +1,4 @@
 output "id" {
-  value       = module.subnet[*].id
-  description = "The ID of the s3 bucket."
+  value       = module.subnet[*].subnet_ids
+  description = "The ID of the subnets"
 }
