@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.1] - 2023-03-29
 ### :bug: Bug Fixes
-- [`a6ac337`](https://github.com/clouddrove/terraform-gcp-subnet/commit/a6ac337799f811c0eeeee7e9a263994b8bdb3cb2)- update README.md 
+- [`a6ac337`](https://github.com/clouddrove/terraform-gcp-subnet/commit/a6ac337799f811c0eeeee7e9a263994b8bdb3cb2)- update README.md
 
 ## [1.0.0] - 2022-11-30
 ### :bug: Bug Fixes
