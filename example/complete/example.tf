@@ -9,14 +9,14 @@ module "vpc" {
   version = "1.0.0"
 
   name                           = "vpc"
-  environment                    = "test"
+  environment                    = "test-1"
   label_order                    = ["environment", "name"]
   google_compute_network_enabled = true
 }
 
 
 module "subnet" {
-  source = "../"
+  source = "../../"
 
   name        = "dev"
   environment = var.environment
@@ -31,7 +31,6 @@ module "subnet" {
   network                            = module.vpc.vpc_id
   project_id                         = "clouddrove"
   private_ip_google_access           = true
-  allow                              = [{ "protocol" : "tcp", "ports" : ["1-65535"] }]
   source_ranges                      = ["10.10.0.0/16"]
   asn                                = 64514
   nat_ip_allocate_option             = "MANUAL_ONLY"
@@ -51,4 +50,15 @@ module "subnet" {
       "ip_cidr_range" : "10.3.0.0/16"
     }
   ]
+  allow = [
+    {
+      "protocol" : "tcp",
+      "ports" : ["1-65535"]
+    }
+  ]
+  log_config = {
+    aggregation_interval = "INTERVAL_15_MIN"
+    flow_sampling        = 0
+    metadata             = "EXCLUDE_ALL_METADATA"
+  }
 }
