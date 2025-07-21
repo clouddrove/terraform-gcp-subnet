@@ -157,5 +157,5 @@ variable "ipv6_access_type" {
 variable "stack_type" {
   description = "The stack type of the subnetwork. Use IPV4_ONLY or IPV4_IPV6 when using IPv6."
   type        = string
-  default     = "IPV4_ONLY"
+  default     = ""
 }
