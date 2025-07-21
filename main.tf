@@ -11,7 +11,7 @@ resource "google_compute_subnetwork" "subnetwork" {
   count = var.google_compute_subnetwork_enabled && var.module_enabled ? 1 : 0
 
   name    = module.labels.id
-  project = var.project_id 
+  project = var.project_id
   network = var.network
   region  = var.gcp_region
 

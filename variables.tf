@@ -11,8 +11,8 @@ variable "label_order" {
 }
 
 variable "name" {
-  type    = string
-  default = "vpc-test"
+  type        = string
+  default     = "vpc-test"
   description = "Name for resources"
 }
 
