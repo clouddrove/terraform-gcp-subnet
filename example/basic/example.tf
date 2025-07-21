@@ -27,12 +27,10 @@ module "subnet" {
   google_compute_firewall_enabled    = true
   google_compute_router_nat_enabled  = true
   module_enabled                     = true
-  ipv6_access_type                   = "EXTERNAL"
   network                            = module.vpc.vpc_id
   project_id                         = "clouddrove"
   private_ip_google_access           = true
   source_ranges                      = ["10.10.0.0/16"]
-  asn                                = 64514
   nat_ip_allocate_option             = "MANUAL_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
   filter                             = "ERRORS_ONLY"

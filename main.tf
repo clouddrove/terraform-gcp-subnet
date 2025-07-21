@@ -11,10 +11,11 @@ resource "google_compute_subnetwork" "subnetwork" {
   count = var.google_compute_subnetwork_enabled && var.module_enabled ? 1 : 0
 
   name    = module.labels.id
-  project = var.project_id
+  project = var.project_id 
   network = var.network
   region  = var.gcp_region
 
+  stack_type               = var.stack_type 
   ipv6_access_type         = var.ipv6_access_type
   private_ip_google_access = var.private_ip_google_access
   ip_cidr_range            = cidrsubnet(var.ip_cidr_range, 0, 0)
