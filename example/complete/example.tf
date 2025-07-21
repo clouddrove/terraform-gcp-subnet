@@ -27,8 +27,6 @@ module "subnet" {
   google_compute_firewall_enabled    = true
   google_compute_router_nat_enabled  = true
   module_enabled                     = true
-  stack_type                         = "IPV4_IPV6"
-  ipv6_access_type                   = "EXTERNAL"
   network                            = module.vpc.vpc_id
   project_id                         = "clouddrove"
   private_ip_google_access           = true

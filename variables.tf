@@ -148,14 +148,6 @@ variable "filter" {
   description = "Specifies the desired filtering of logs on this NAT."
 }
 
-variable "ipv6_access_type" {
-  type        = string
-  default     = ""
-  description = "The access type of IPv6 address this subnet holds."
-}
 
-variable "stack_type" {
-  description = "The stack type of the subnetwork. Use IPV4_ONLY or IPV4_IPV6 when using IPv6."
-  type        = string
-  default     = "IPV4_IPV6"
-}
+
+
