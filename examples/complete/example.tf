@@ -27,7 +27,6 @@ module "subnet" {
   google_compute_firewall_enabled    = true
   google_compute_router_nat_enabled  = true
   module_enabled                     = true
-  ipv6_access_type                   = "EXTERNAL"
   network                            = module.vpc.vpc_id
   project_id                         = "clouddrove"
   private_ip_google_access           = true
@@ -56,4 +55,9 @@ module "subnet" {
       "ports" : ["1-65535"]
     }
   ]
+  log_config = {
+    aggregation_interval = "INTERVAL_15_MIN"
+    flow_sampling        = 0
+    metadata             = "EXCLUDE_ALL_METADATA"
+  }
 }

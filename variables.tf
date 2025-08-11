@@ -11,8 +11,9 @@ variable "label_order" {
 }
 
 variable "name" {
-  type    = string
-  default = ""
+  type        = string
+  default     = "vpc-test"
+  description = "Name for resources"
 }
 
 variable "network" {
@@ -146,8 +147,7 @@ variable "filter" {
   default     = ""
   description = "Specifies the desired filtering of logs on this NAT."
 }
-variable "ipv6_access_type" {
-  type        = string
-  default     = ""
-  description = "The access type of IPv6 address this subnet holds."
-}
+
+
+
+
