@@ -14,12 +14,11 @@
 | google\_compute\_router\_nat\_enabled | n/a | `bool` | `true` | no |
 | google\_compute\_subnetwork\_enabled | n/a | `bool` | `true` | no |
 | ip\_cidr\_range | (Required) The range of internal addresses that are owned by this subnetwork. Provide this property when you create the subnetwork. For example, 10.0.0.0/8 or 192.168.0.0/16. Ranges must be unique and non-overlapping within a network. Only IPv4 is supported. | `string` | `"10.10.0.0/24"` | no |
-| ipv6\_access\_type | The access type of IPv6 address this subnet holds. | `string` | `""` | no |
 | label\_order | Label order, e.g. sequence of application name and environment `name`,`environment`,'attribute' [`webserver`,`qa`,`devops`,`public`,] . | `list(any)` | `[]` | no |
 | log\_config | VPC flow logging options for this subnetwork | `map(any)` | `null` | no |
 | module\_enabled | n/a | `bool` | `true` | no |
 | module\_timeouts | (Optional) How long certain operations (per resource type) are allowed to take before being considered to have failed. | `any` | `{}` | no |
-| name | n/a | `string` | `""` | no |
+| name | Name for resources | `string` | `"vpc-test"` | no |
 | nat\_ip\_allocate\_option | How external IPs should be allocated for this NAT. | `string` | `"MANUAL_ONLY"` | no |
 | network | (Required) The VPC network the subnets belong to. Only networks that are in the distributed mode can have subnetworks. | `string` | `""` | no |
 | next\_hop\_gateway | URL to a gateway that should handle matching packets. | `string` | `""` | no |
